@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "React Star Wars by Matthew Hayes Jacobs",
   "scripts": {
+    "start": "babel-node index.js",
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
     "open:src": "babel-node tools/srcServer.js",
