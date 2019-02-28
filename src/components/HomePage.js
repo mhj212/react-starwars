@@ -25,7 +25,7 @@ class HomePage extends React.Component {
 
 
     renderTitle() {
-        return (<h1>Star Wars API Challenge!</h1>);
+        return (<h1>Star Wars API Challenge</h1>);
     }
 
 
