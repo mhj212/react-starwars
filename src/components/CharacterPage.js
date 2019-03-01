@@ -8,8 +8,7 @@ class CharacterPage extends React.Component {
         this.state = {
 
             url: this.props.location.state,
-            characterIsLoaded: false,
-            characterError: false,
+            loadError: false,
             films: [],
             filmsCount: 0,
             filmsNotLoaded: true,
@@ -29,11 +28,10 @@ class CharacterPage extends React.Component {
                     if (JSON.stringify(result) == JSON.stringify({ detail: "Not found" })) {
 
                         this.setState({
-                            characterError: true
+                            loadError: true
                         })
                     } else {
                         this.setState({
-                            characterIsLoaded: true,
                             items: result,
                             name: result.name
                         });
@@ -63,7 +61,8 @@ class CharacterPage extends React.Component {
                                 ),
                                 (error) => {
                                     this.setState({
-                                        error
+                                        error,
+                                        loadError: true
                                     });
                                 }
 
@@ -74,7 +73,7 @@ class CharacterPage extends React.Component {
 
                 (error) => {
                     this.setState({
-                        characterIsLoaded: false,
+                        loadError: true,
                         error
                     });
                 }
@@ -140,7 +139,7 @@ class CharacterPage extends React.Component {
     }
 
     renderMessage() {
-        if (this.state.characterError == true) {
+        if (this.state.loadError == true) {
 
             return (<div className="character-error-message">No data found, please try another.</div>);
         }
