@@ -135,7 +135,7 @@ class CharacterPage extends React.Component {
     }
 
     renderBackButton() {
-        return (<button className="Btn"><Link to="/">BACK</Link></button>)
+        return (<Link to="/"><button className="Btn">BACK</button></Link>)
     }
 
     renderMessage() {
